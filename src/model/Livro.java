@@ -43,7 +43,7 @@ public class Livro {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Livro livro = (Livro) o;
-        return Objects.equals(nome, livro.nome) && Objects.equals(numPaginas, livro.numPaginas);
+        return nome.equals(livro.nome) && numPaginas.equals(livro.numPaginas);
     }
 
     @Override

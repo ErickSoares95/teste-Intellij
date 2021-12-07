@@ -1,8 +1,9 @@
 package model;
 
+import java.util.Comparator;
 import java.util.Objects;
 
-public class Gato {
+public class Gato implements Comparable<Gato> {
     private String nome;
     private String cor;
     private Integer idade;
@@ -60,5 +61,21 @@ public class Gato {
                 ", cor='" + cor + '\'' +
                 ", idade=" + idade +
                 '}';
+    }
+
+
+    @Override
+    public int compareTo(Gato gato) {
+
+        return this.getNome().compareToIgnoreCase(gato.getNome());
+    }
+
+    public static class ComparatorIdade implements Comparator<Gato>{
+
+        @Override
+        public int compare(Gato gato1, Gato gato2) {
+
+            return Integer.compare(gato1.getIdade(), gato2.getIdade());
+        }
     }
 }
